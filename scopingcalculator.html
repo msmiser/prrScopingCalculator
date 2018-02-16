@@ -1,44 +1,55 @@
 <html>
 	<head>
 		<title>Scoping Calculator</title>
-		<style>
-			body {background-color: #063D4B;}
-			.main_container {background-color: #fff; width: 60%; margin: 0 auto; padding: 5px 10px 5px 10px;}
-			.header {margin: 0 auto;}
-			h1 {color: #00A690;}
-		</style>
+		
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="css/custom.css" type="text/css" />
 	</head>
+
 	<body>
-		<div class="main_container">
-			<h1>PRR Scoping Calculator</h1>
-			<h3>Standard Design Refresh</h3>
-			<h4>Products</h4>
-			<input type="checkbox" id="pro_reviews">Reviews
-			<input type="checkbox" id="pro_questions">Questions
-			<h4>Features</h4>
-			<input type="checkbox" id="fea_display">Display
-			<input type="checkbox" id="fea_submission">Submission
-			<h4>Overrides</h4>
-			<input type="radio" name="override_type" id="override_std" checked>Standard
-			<input type="radio" name="override_type" id="override_high">High Level<br>
-			Count: <input type="text" id="override_count">
-			<h4>Custom Styling </h4>
-			<input type="radio" name="styling_type" id="styling_std" checked>Standard
-			<input type="radio" name="styling_type" id="styling_high">High Level<br>
-			Count: <input type="text" id="styling_count">
-			<h4>Additional Features</h4>
-			<input type="checkbox">Responsive
-			<input type="checkbox">Additional Summary Container
-			<!-- TODO: Hide/Show based on checkbox -->
-			<input type="radio" name="responsive_type" id="resp_std" checked>Standard
-			<input type="radio" name="responsive_type" id="resp_high">High Level<br>
-			
+		<div class="container-fluid headerTitle">
+			<div class="container">
+				<h1>PRR Scoping Calculator</h1>
+			</div>
+		</div>
+		<div class="container main">
+			<div class="col">
+				<h3>Standard Design Refresh</h3>
+				<h4>Products</h4>
+				<input type="checkbox" id="pro_reviews">Reviews
+				<input type="checkbox" id="pro_questions">Questions
+			</div>
+			<div class="col">
+				<h4>Features</h4>
+				<input type="checkbox" id="fea_display">Display
+				<input type="checkbox" id="fea_submission">Submission
+			</div>
+			<div class="col">
+				<h4>Overrides</h4>
+				<input type="radio" name="override_type" id="override_std" checked>Standard
+				<input type="radio" name="override_type" id="override_high">High Level<br>
+				Count: <input type="text" id="override_count">
+			</div>
+			<div class="col">
+				<h4>Custom Styling </h4>
+				<input type="radio" name="styling_type" id="styling_std" checked>Standard
+				<input type="radio" name="styling_type" id="styling_high">High Level<br>
+				Count: <input type="text" id="styling_count">
+			</div>
+			<div class="col">
+				<h4>Additional Features</h4>
+				<input type="checkbox">Responsive
+				<input type="checkbox">Additional Summary Container
+				<!-- TODO: Hide/Show based on checkbox -->
+				<input type="radio" name="responsive_type" id="resp_std" checked>Standard
+				<input type="radio" name="responsive_type" id="resp_high">High Level<br>
+			</div>
+			<div class="col">
+				<h4>Emails</h4>
+			</div>
+				<p><button type="button" onclick="calculate()">Calculate</button></p>
 
-			<h4>Emails</h4>
-
-			<p><button type="button" onclick="calculate()">Calculate</button></p>
-
-			<span id="output_span"></span>
+				<span id="output_span"></span>
 		</div>
 
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
