@@ -14,42 +14,62 @@
 		</div>
 		<div class="container main">
 			<div class="col">
-				<h3>Standard Design Refresh</h3>
-				<h4>Products</h4>
+				<h5>Primary Scope</h5>
+				<input type="checkbox" id="scope_redes">Redesign<br>
+				<input type="checkbox" id="scope_resp">Responsive
+				<!-- TODO: Hide/Show based on checkbox -->
+				<input type="radio" name="responsive_type" id="resp_std" checked>Standard
+				<input type="radio" name="responsive_type" id="resp_high">High Level<br>
+				<input type="checkbox" id="scope_other">Other
+			</div>
+			<div class="col">
+				<h5>Products</h5>
 				<input type="checkbox" id="pro_reviews">Reviews
 				<input type="checkbox" id="pro_questions">Questions
 			</div>
 			<div class="col">
-				<h4>Features</h4>
+				<h5>Features</h5>
 				<input type="checkbox" id="fea_display">Display
 				<input type="checkbox" id="fea_submission">Submission
 			</div>
 			<div class="col">
-				<h4>Overrides</h4>
+				<h5>Overrides</h5>
 				<input type="radio" name="override_type" id="override_std" checked>Standard
 				<input type="radio" name="override_type" id="override_high">High Level<br>
-				Count: <input type="text" id="override_count">
+				Count: <input type="text" id="override_count" size="3">
 			</div>
 			<div class="col">
-				<h4>Custom Styling </h4>
+				<h5>Custom Styling </h5>
 				<input type="radio" name="styling_type" id="styling_std" checked>Standard
 				<input type="radio" name="styling_type" id="styling_high">High Level<br>
-				Count: <input type="text" id="styling_count">
+				Count: <input type="text" id="styling_count" size="3">
 			</div>
 			<div class="col">
-				<h4>Additional Features</h4>
-				<input type="checkbox">Responsive
-				<input type="checkbox">Additional Summary Container
-				<!-- TODO: Hide/Show based on checkbox -->
-				<input type="radio" name="responsive_type" id="resp_std" checked>Standard
-				<input type="radio" name="responsive_type" id="resp_high">High Level<br>
+				<h5>Emails</h5>
+				<input type="radio" name="email_type" id="email_branded" checked>Branded
+				<input type="radio" name="email_type" id="email_custom">Custom<br>
+				Number of Emails: <input type="text" id="email_count" size="3">
 			</div>
-			<div class="col">
-				<h4>Emails</h4>
-			</div>
-				<p><button type="button" onclick="calculate()">Calculate</button></p>
 
-				<span id="output_span"></span>
+			<div class="col">
+				<h5>Locales</h5>
+				Number of Locales: <input type="text" id="locale_count" size="3">
+			</div>
+
+			<div class="col">
+				<h5>Additional Features</h5>
+				<input type="checkbox">Secondary Summary Container
+				<input type="checkbox">BV Pixel
+				<input type="checkbox">SEO
+				<input type="checkbox">Hosted Authentication
+				<input type="checkbox">Site Authentication
+				<input type="checkbox">PID Migration
+				<input type="checkbox">Content Import
+			</div>
+
+			<p><button type="button" onclick="calculate()">Calculate</button></p>
+
+			<span id="output_span"></span>
 		</div>
 
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
