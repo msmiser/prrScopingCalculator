@@ -1,12 +1,34 @@
 /* TODO Would be nice if it calculates on the fly */
-function calculate(){
-	var numProducts = 0;
-	var numFeatures = 0;
-	var baseHours = 0;
-	var ipmHours = 0;
-	var ieHours = 0;
-	var uidHours = 0;
+var numProducts = 0;
+var numFeatures = 0;
+var baseHours = 0;
+var ipmHours = 0;
+var ieHours = 0;
+var uidHours = 0;
 
+var lblBaseHours = $('#lblBaseHours');
+var lblOverrideHours = $('#lblOverrideHours');
+var lblStylingHours = $('#lblStylingHours');
+var lblTotalHours = $('#lblTotalHours');
+var lblIPMHours = $('#lblIPMHours');
+var lblIEHours = $('#lblIEHours');
+var lblUIDHours = $('#lblUIDHours');
+
+var stdMultiplier = 2; //# of hours for one standard override/custom styling 
+var highMultiplier = 5; //# of hours for one high level override/custom styling
+
+//TODO
+//Activate/Inactivate sections based on primary scope crtieria
+
+function calculate(){
+	baseHours = 0;
+	ipmHours = 0;
+	ieHours = 0;
+	uidHours = 0;
+	numProducts = 0;
+	numFeatures = 0;
+	overrideHours = 0;
+	stylingHours = 0;
 	/* Calculate number of products */
 	/* Could actually iterate through this instead */
 	var pro_reviews = $('#pro_reviews');
@@ -54,7 +76,6 @@ function calculate(){
 	var overrideCount = $('#override_count').val();
 	var override_std = $('#override_std');
 	var override_high = $('#override_high');
-	var overrideHours = 0;
 	var stdMultiplier = 2; //# of hours for one standard override/custom styling 
 	var highMultiplier = 5; //# of hours for one high level override/custom styling
 
@@ -74,7 +95,6 @@ function calculate(){
 	var stylingCount = $('#styling_count').val();
 	var styling_std = $('#styling_std');
 	var styling_high = $('#styling_high');
-	var stylingHours = 0;
 
 	if (stylingCount != null){
 		
@@ -86,13 +106,12 @@ function calculate(){
 		uidHours += stylingHours;
 		ipmHours += 0.1 * stylingCount;
 	}
-
-	//console.log("Styling Hours: " + stylingHours);
+	//console.log("Styling Hours: " + stylingHours);	
 
 	/* Calculate Responsive Hours */
-	var scope_resp = $('#scope_resp');
-	var resp_std = $('#resp_std').prop("checked");
-	var resp_high = $('#resp_high').prop("checked");
+	scope_resp = $('#scope_resp');
+	resp_std = $('#resp_std').prop("checked");
+	resp_high = $('#resp_high').prop("checked");
 
 	if (scope_resp.prop("checked")){
 		if(resp_high){
@@ -154,19 +173,54 @@ function calculate(){
 	}
 
 	/* Hours Output */
-	var totalHours = baseHours + overrideHours + stylingHours;
-
-	outputText = "<h4>Overall Hours</h4>"
-	outputText += "<p><b>Base Hours:</b> " + baseHours + "<br>";
-	outputText += "<b>Override Hours:</b> " + overrideHours + "<br>";
-	outputText += "<b>Styling Hours:</b> " + stylingHours + "<br>";
-	outputText += "<b>Total Hours:</b> " + totalHours + "</p>";
-
-	outputText += "<h4>Breakdown</h4>";
-	outputText += "<p><b>IPM Hours:</b> " + ipmHours + "<br>";
-	outputText += "<b>IE Hours:</b> " + ieHours + "<br>";
-	outputText += "<b>UID Hours:</b> " + uidHours + "</p>";
-
-	var output_span = $('#output_span');
-	output_span.html(outputText);
+	/*var totalHours = baseHours + overrideHours + stylingHours;*/
+	update_labels();
 }
+
+function update_labels(){
+	totalHours = uidHours + ipmHours + ieHours;
+
+	lblBaseHours.text(Math.round(baseHours));
+	lblIEHours.text(Math.round(ieHours));
+	lblIPMHours.text(Math.round(ipmHours));
+	lblUIDHours.text(Math.round(uidHours));
+	lblOverrideHours.text(Math.round(overrideHours));
+	lblStylingHours.text(Math.round(stylingHours));
+	lblTotalHours.text(Math.round(totalHours));
+}
+
+$(document).ready(function() {
+
+	$('#respType').hide();
+
+	//Show/Hide Responsive Type
+	$('#scope_resp').change(function() {
+	    if(this.checked) {
+	        $('#respType').show();
+	    } else {$('#respType').hide();}        
+	});
+
+	//TODO Improve below
+	$("[id^=pro]").change(function() {
+	    calculate();
+	});
+	$("[id^=fea]").change(function() {
+	    calculate();
+	});
+
+	$("[id^=override]").change(function() {
+	    calculate();
+	});
+
+	$("[id^=styling]").change(function() {
+	    calculate();
+	});
+
+	$("[id^=resp]").change(function() {
+	    calculate();
+	});
+
+	$("[id^=scope]").change(function() {
+	    calculate();
+	});
+});
