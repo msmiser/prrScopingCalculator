@@ -20,54 +20,51 @@
 						<div class="row">
 							<div class="col">
 								<input type="checkbox" id="scope_redes">Redesign
-							</div>
-							<div class="col">
 								<input type="checkbox" id="scope_resp">Responsive
-								<div id="respType">
-									<input type="radio" name="responsive_type" id="resp_std" checked>Standard
-									<input type="radio" name="responsive_type" id="resp_high">High Level<br>
-								</div>
-							</div>
-							<div class="col">
+								<input type="checkbox" id="scope_emails">Emails
 								<input type="checkbox" id="scope_other">Other
 							</div>
 						</div>
 					</div>
-					<div class="col">
+					<div id="section_products" class="col disabled">
 						<h5>Products</h5>
 						<input type="checkbox" id="pro_reviews">Reviews
 						<input type="checkbox" id="pro_questions">Questions
 					</div>
-					<div class="col">
+					<div id="section_features" class="col disabled">
 						<h5>Features</h5>
 						<input type="checkbox" id="fea_display">Display
 						<input type="checkbox" id="fea_submission">Submission
 					</div>
-					<div class="col">
+					<div id="section_responsive" class="col disabled">
+						<h5>Responsive</h5>
+						<input type="radio" name="responsive_type" id="resp_std" checked>Standard
+						<input type="radio" name="responsive_type" id="resp_high">High Level
+					</div>
+					<div id="section_overrides" class="col disabled">
 						<h5>Overrides</h5>
 						<input type="radio" name="override_type" id="override_std" checked>Standard
 						<input type="radio" name="override_type" id="override_high">High Level<br>
 						Count: <input type="text" id="override_count" size="3">
 					</div>
-					<div class="col">
+					<div id="section_styling" class="col disabled">
 						<h5>Custom Styling </h5>
 						<input type="radio" name="styling_type" id="styling_std" checked>Standard
 						<input type="radio" name="styling_type" id="styling_high">High Level<br>
 						Count: <input type="text" id="styling_count" size="3">
 					</div>
-					<div class="col">
+					<div id="section_locales" class="col disabled">
+						<h5>Locales</h5>
+						Number of Locales: <input type="text" id="locale_count" size="3">
+					</div>
+					<div id="section_emails" class="col disabled">
 						<h5>Emails</h5>
 						<input type="radio" name="email_type" id="email_branded" checked>Branded
 						<input type="radio" name="email_type" id="email_custom">Custom<br>
 						Number of Emails: <input type="text" id="email_count" size="3">
 					</div>
 
-					<div class="col">
-						<h5>Locales</h5>
-						Number of Locales: <input type="text" id="locale_count" size="3">
-					</div>
-
-					<div class="col">
+					<div id ="section_addfeatures" class="col disabled">
 						<h5>Additional Features</h5>
 						<input type="checkbox">Secondary Summary Container
 						<input type="checkbox">BV Pixel
@@ -78,7 +75,7 @@
 						<input type="checkbox">Content Import
 					</div>
 
-					<p><button type="button" onclick="calculate()">Calculate</button></p>
+					<!--<p><button type="button" onclick="calculate()">Calculate</button></p>-->
 				</div>
 				<div class="col-4">
 					<span id="output_span"></span>
@@ -93,10 +90,7 @@
 					<b>IE Hours: </b><label id="lblIEHours">0</label><br>
 					<b>UID Hours: </b><label id="lblUIDHours">0</label></p>
 				</div>
-			</div>
-			
-
-			
+			</div>	
 		</div>
 
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>

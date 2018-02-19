@@ -1,3 +1,8 @@
 .headerTitle {padding: 20px 0; background: #063D4B; color: #fff;}
 body {background: #f9f9f9;}
 .main {background: #fff; padding-top: 30px; padding-bottom: 30px;}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}

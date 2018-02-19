@@ -17,6 +17,11 @@ var lblUIDHours = $('#lblUIDHours');
 var stdMultiplier = 2; //# of hours for one standard override/custom styling 
 var highMultiplier = 5; //# of hours for one high level override/custom styling
 
+var scope_resp = $('#scope_resp');
+var scope_redes = $('#scope_redes');
+var scope_other = $('#scope_other');
+var scope_emails = $('#scope_emails');
+
 //TODO
 //Activate/Inactivate sections based on primary scope crtieria
 
@@ -109,7 +114,6 @@ function calculate(){
 	//console.log("Styling Hours: " + stylingHours);	
 
 	/* Calculate Responsive Hours */
-	scope_resp = $('#scope_resp');
 	resp_std = $('#resp_std').prop("checked");
 	resp_high = $('#resp_high').prop("checked");
 
@@ -189,15 +193,42 @@ function update_labels(){
 	lblTotalHours.text(Math.round(totalHours));
 }
 
-$(document).ready(function() {
-
+function show_sections(){
+	//Reset sections
+	$("[id^=section]").addClass("disabled");
 	$('#respType').hide();
 
-	//Show/Hide Responsive Type
-	$('#scope_resp').change(function() {
-	    if(this.checked) {
-	        $('#respType').show();
-	    } else {$('#respType').hide();}        
+	if(scope_redes.prop("checked")){
+		$('#section_products').removeClass("disabled");
+		$('#section_features').removeClass("disabled");
+		$('#section_overrides').removeClass("disabled");
+		$('#section_styling').removeClass("disabled");
+		$('#section_locales').removeClass("disabled");
+	}
+	
+	if(scope_other.prop("checked")){
+		$('#section_addfeatures').removeClass("disabled");
+	}
+
+	if(scope_emails.prop("checked")){
+		$('#section_emails').removeClass("disabled");
+	}
+	
+	if(scope_resp.prop("checked")){
+		$('#section_products').removeClass("disabled");
+		$('#section_features').removeClass("disabled");
+		$('#section_overrides').removeClass("disabled");
+		$('#section_styling').removeClass("disabled");
+		$('#section_locales').removeClass("disabled");
+		$('#section_responsive').removeClass("disabled");
+		$('#respType').show();
+	}
+}
+
+$(document).ready(function() {
+	//Disabled/Enable sections based on scope.
+	$("[id^=scope]").change(function() {
+	    show_sections();       
 	});
 
 	//TODO Improve below
