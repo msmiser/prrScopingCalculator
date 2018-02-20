@@ -22,9 +22,6 @@ var scope_redes = $('#scope_redes');
 var scope_other = $('#scope_other');
 var scope_emails = $('#scope_emails');
 
-//TODO
-//Activate/Inactivate sections based on primary scope crtieria
-
 function calculate(){
 	baseHours = 0;
 	ipmHours = 0;
@@ -176,6 +173,52 @@ function calculate(){
 		}
 	}
 
+	/* Locales */
+	/* Calculation is 15% of Project Hours per locale */
+	locale_count = $('#locale_count').val();
+
+	if (locale_count > 0){
+		ieHoursPerLocale = ieHours * .15;
+		ipmHoursPerLocale = ipmHours * .15;
+		uidHoursPerLocale = uidHours * .15;
+
+		ieHours = ieHours + (ieHoursPerLocale * locale_count);
+		ipmHours = ipmHours + (ipmHoursPerLocale * locale_count);
+		uidHours = uidHours + (uidHoursPerLocale * locale_count);
+	}
+
+	/* Emails */
+	if (scope_emails.prop("checked")){
+		email_branded = $('#email_branded').prop("checked");
+		email_custom = $('#email_custom').prop("checked");
+		email_count = $('#email_count').val();
+		emailHours = 0;
+
+		if (email_count > 0){
+			if (email_branded){
+				ieHours += 3;
+				ipmHours += 1;
+				uidHours += 2;
+
+				if (email_count > 1){
+					ieHours += (1 * email_count * locale_count);
+					uidHours += (2 * email_count * locale_count);
+				}
+			} else if (email_custom){
+				ieHours += 3;
+				ipmHours += 2;
+				uidHours += 20;
+
+				if (email_count > 1){
+					ieHours += (1 * email_count);
+					uidHours += (2 * email_count);
+				}
+			}
+		}
+
+	}
+
+
 	/* Hours Output */
 	/*var totalHours = baseHours + overrideHours + stylingHours;*/
 	update_labels();
@@ -253,5 +296,13 @@ $(document).ready(function() {
 
 	$("[id^=scope]").change(function() {
 	    calculate();
+	});
+
+	$("#locale_count").change(function() {
+		calculate();
+	});
+
+	$("[id^=email]").change(function() {
+		calculate();
 	});
 });
