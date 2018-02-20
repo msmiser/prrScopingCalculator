@@ -1,6 +1,8 @@
 
 /* ----- General ----- */
-.headerTitle {padding: 20px 0; background: #063D4B; color: #fff;}
+.headerTitle {padding: 20px 0; background: #003d4d; color: #fff;}
+.headerTitle h1 {display: inline-block; vertical-align: middle; padding-left: 10px; margin: 7px 0 0;}
+.bvLogo {width: 50px;}
 body {background: #f9f9f9;}
 .main {background: #fff; padding-top: 30px; padding-bottom: 30px;}
 
