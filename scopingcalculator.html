@@ -13,7 +13,7 @@
 				<h1>PRR Scoping Calculator</h1>
 			</div>
 		</div>
-		<div class="container main">
+		<div class="container main scopeCalc">
 			<div class="row">
 				<div class="col-8">
 					<div class="col scope">
@@ -39,53 +39,139 @@
 							</div>
 						</div>
 					</div>
+					
+					<div class="divider"></div>
+					
 					<div id="section_products" class="col disabled">
 						<h5>Products</h5>
-						<input type="checkbox" id="pro_reviews">Reviews
-						<input type="checkbox" id="pro_questions">Questions
+						<label for="pro_reviews">
+					    	<input type="checkbox" id="pro_reviews" class="option-input checkbox" />
+					    	Reviews
+					 	</label>
+					 	<label for="pro_questions">
+					    	<input type="checkbox" id="pro_questions" class="option-input checkbox" />
+					    	Questions
+					 	</label>
 					</div>
+					
+					<div class="divider"></div>
+					
 					<div id="section_features" class="col disabled">
 						<h5>Features</h5>
-						<input type="checkbox" id="fea_display">Display
-						<input type="checkbox" id="fea_submission">Submission
-					</div>
-					<div id="section_responsive" class="col disabled">
-						<h5>Responsive</h5>
-						<input type="radio" name="responsive_type" id="resp_std" checked>Standard
-						<input type="radio" name="responsive_type" id="resp_high">High Level
-					</div>
-					<div id="section_overrides" class="col disabled">
-						<h5>Overrides</h5>
-						<input type="radio" name="override_type" id="override_std" checked>Standard
-						<input type="radio" name="override_type" id="override_high">High Level<br>
-						Count: <input type="text" id="override_count" size="3">
-					</div>
-					<div id="section_styling" class="col disabled">
-						<h5>Custom Styling </h5>
-						<input type="radio" name="styling_type" id="styling_std" checked>Standard
-						<input type="radio" name="styling_type" id="styling_high">High Level<br>
-						Count: <input type="text" id="styling_count" size="3">
-					</div>
-					<div id="section_locales" class="col disabled">
-						<h5>Locales</h5>
-						Number of Locales: <input type="text" id="locale_count" size="3" value="1">
-					</div>
-					<div id="section_emails" class="col disabled">
-						<h5>Emails</h5>
-						<input type="radio" name="email_type" id="email_branded" checked>Branded
-						<input type="radio" name="email_type" id="email_custom">Custom<br>
-						Number of Emails: <input type="text" id="email_count" size="3">
+						<label for="fea_display">
+					    	<input type="checkbox" id="fea_display" class="option-input checkbox" />
+					    	Display
+					 	</label>
+					 	<label for="fea_submission">
+					    	<input type="checkbox" id="fea_submission" class="option-input checkbox" />
+					    	Submission
+					 	</label>
 					</div>
 
-					<div id ="section_addfeatures" class="col disabled">
+					<div class="divider"></div>
+
+					<div id="section_responsive" class="col disabled">
+						<h5>Responsive</h5>
+						<label>
+						    <input type="radio" id="resp_std" class="option-input radio" name="responsive_type" />
+						    Standard
+						</label>
+						<label>
+						    <input type="radio" id="resp_high" class="option-input radio" name="responsive_type" />
+						    High Level
+						</label>
+					</div>
+
+					<div class="divider"></div>
+
+					<div id="section_overrides" class="col disabled">
+						<h5>Overrides</h5>
+						<label>
+						    <input type="radio" id="override_std" class="option-input radio" name="override_type" />
+						    Standard
+						</label>
+						<label>
+						    <input type="radio" id="override_high" class="option-input radio" name="override_type" />
+						    High Level
+						</label>
+						Count: &nbsp;<input type="text" id="override_count" class="countBox" size="3">
+					</div>
+
+					<div class="divider"></div>
+
+					<div id="section_styling" class="col disabled">
+						<h5>Custom Styling </h5>
+						<label>
+						    <input type="radio" id="styling_std" class="option-input radio" name="styling_type" />
+						    Standard
+						</label>
+						<label>
+						    <input type="radio" id="styling_high" class="option-input radio" name="styling_type" />
+						    High Level
+						</label>
+						Count: &nbsp;<input type="text" id="styling_count" class="countBox" size="3">
+					</div>
+
+					<div class="divider"></div>
+
+					<div id="section_locales" class="col disabled">
+						<h5>Locales</h5>
+						Number of Locales: &nbsp;<input type="text" id="locale_count" class="countBox" size="3" value="1">
+					</div>
+
+					<div class="divider"></div>
+
+					<div id="section_emails" class="col disabled">
+						<h5>Emails</h5>
+						<label>
+						    <input type="radio" id="email_branded" class="option-input radio" name="email_type" />
+						    Branded
+						</label>
+						<label>
+						    <input type="radio" id="email_custom" class="option-input radio" name="email_type" />
+						    Custom
+						</label>
+						Number of Emails: &nbsp;<input type="text" id="email_count" class="countBox" size="3">
+					</div>
+
+					<div class="divider"></div>
+
+					<div id ="section_addfeatures" class="col disabled addFeatures">
 						<h5>Additional Features</h5>
-						<input type="checkbox">Secondary Summary Container
-						<input type="checkbox">BV Pixel
-						<input type="checkbox">SEO
-						<input type="checkbox">Hosted Authentication
-						<input type="checkbox">Site Authentication
-						<input type="checkbox">PID Migration
-						<input type="checkbox">Content Import
+						<div class="row">
+							<div class="col-5">
+								<label for="other1">
+							    	<input type="checkbox" id="other1" class="option-input checkbox" />
+							    	Secondary Summary Container
+							 	</label>
+							 	<label for="other2">
+							    	<input type="checkbox" id="other2" class="option-input checkbox" />
+							    	BV Pixel
+							 	</label>
+							 	<label for="other3">
+							    	<input type="checkbox" id="other3" class="option-input checkbox" />
+							    	SEO
+							 	</label>
+							 	<label for="other4">
+							    	<input type="checkbox" id="other4" class="option-input checkbox" />
+							    	Hosted Authentication
+							 	</label>
+						 	</div>
+						 	<div class="col-5">
+							 	<label for="other5">
+							    	<input type="checkbox" id="other5" class="option-input checkbox" />
+							    	Site Authentication
+							 	</label>
+							 	<label for="other6">
+							    	<input type="checkbox" id="other6" class="option-input checkbox" />
+							    	PID Migration
+							 	</label>
+							 	<label for="other7">
+							    	<input type="checkbox" id="other7" class="option-input checkbox" />
+							    	Content Import
+							 	</label>
+						 	</div>
+					 	</div>
 					</div>
 
 					<!--<p><button type="button" onclick="calculate()">Calculate</button></p>-->
