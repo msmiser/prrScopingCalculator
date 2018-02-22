@@ -173,6 +173,36 @@ function calculate(){
 		}
 	}
 
+	/* Additional Features */
+	//TODO Replatform
+	if (scope_other){
+		if ($('#other-summary').prop("checked")){
+			ieHours += 4;
+			uidHours += 6;
+		}
+		if ($('#other-pixel').prop("checked")){
+			ieHours += 10;
+		}
+		if ($('#other-seo').prop("checked")){
+			ieHours += 10;
+		}
+		if ($('#other-hostedauth').prop("checked")){
+			//Config 4 hours
+			//Email 4 x product
+			//User Migration 6 hours
+			ieHours += (10 + (4 * numProducts));
+		}
+		if ($('#other-siteauth').prop("checked")){
+			//TODO
+		}
+		if ($('#other-pid').prop("checked")){
+			//TODO
+		}
+		if ($('#other-import').prop("checked")){
+			//TODO
+		}
+	}
+
 	/* Locales */
 	/* Calculation is 15% of Project Hours per locale */
 	locale_count = $('#locale_count').val();
@@ -195,6 +225,7 @@ function calculate(){
 		emailHours = 0;
 
 		if (email_count > 0){
+		//IPM hours for an email only project??
 			if (email_branded){
 				ieHours += 3;
 				ipmHours += 1;
@@ -254,6 +285,7 @@ function show_sections(){
 	}
 
 	if(scope_emails.prop("checked")){
+		$('#section_locales').removeClass("disabled");
 		$('#section_emails').removeClass("disabled");
 	}
 	
@@ -303,6 +335,9 @@ $(document).ready(function() {
 	});
 
 	$("[id^=email]").change(function() {
+		calculate();
+	});
+	$("[id^=other]").change(function() {
 		calculate();
 	});
 });
