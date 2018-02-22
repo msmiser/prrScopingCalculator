@@ -187,19 +187,16 @@ function calculate(){
 			ieHours += 10;
 		}
 		if ($('#other-hostedauth').prop("checked")){
-			//Config 4 hours
-			//Email 4 x product
-			//User Migration 6 hours
 			ieHours += (10 + (4 * numProducts));
 		}
 		if ($('#other-siteauth').prop("checked")){
-			//TODO
+			ieHours += 10;
 		}
 		if ($('#other-pid').prop("checked")){
-			//TODO
+			ieHours += 10;
 		}
 		if ($('#other-import').prop("checked")){
-			//TODO
+			ieHours += 10;
 		}
 	}
 
