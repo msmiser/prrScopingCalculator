@@ -282,6 +282,7 @@ function show_sections(){
 	
 	if(scope_other.prop("checked")){
 		$('#section_addfeatures').removeClass("disabled");
+		$('#section_products').removeClass("disabled");
 	}
 
 	if(scope_emails.prop("checked")){
