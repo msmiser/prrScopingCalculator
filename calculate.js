@@ -22,6 +22,12 @@ var scope_redes = $('#scope_redes');
 var scope_other = $('#scope_other');
 var scope_emails = $('#scope_emails');
 
+var pro_reviews = $('#pro_reviews');
+var pro_questions = $('#pro_questions');
+
+var fea_display = $('#fea_display');
+var fea_submission = $('#fea_submission');
+
 function calculate(){
 	baseHours = 0;
 	ipmHours = 0;
@@ -33,16 +39,14 @@ function calculate(){
 	stylingHours = 0;
 	/* Calculate number of products */
 	/* Could actually iterate through this instead */
-	var pro_reviews = $('#pro_reviews');
-	var pro_questions = $('#pro_questions');
+	
 
 	if (pro_reviews.prop("checked")){numProducts++};
 	if (pro_questions.prop("checked")){numProducts++};
 
 	/* Calculate number of features */
 	/* Could actually iterate through this instead */
-	var fea_display = $('#fea_display');
-	var fea_submission = $('#fea_submission');
+	
 
 	if (fea_display.prop("checked")){numFeatures++};
 	if (fea_submission.prop("checked")){numFeatures++};
@@ -249,7 +253,40 @@ function calculate(){
 
 	/* Hours Output */
 	/*var totalHours = baseHours + overrideHours + stylingHours;*/
+	show_errors();
 	update_labels();
+}
+
+function show_errors(){
+	$("[id^=error]").empty();
+	$("#overall-warnings").empty();
+	var warningMsgs = '';
+
+	//TODO: prob better way to do all this to accommodate future updates to the form
+	if (scope_redes.prop("checked") || scope_resp.prop("checked") || scope_other.prop("checked")){
+		if (!pro_reviews.prop("checked") && !pro_questions.prop("checked")){
+			$('#error-products').text("Please select one");
+		}
+
+		if (!fea_display.prop("checked") && !fea_submission.prop("checked")){
+			$('#error-features').text("Please select one");
+		}
+	} 
+	if (scope_emails.prop("checked")){
+		if (!pro_reviews.prop("checked") && !pro_questions.prop("checked")){
+			$('#error-products').text("Please select one");
+		}
+
+		if (email_count == ''){
+			$('#error-emails').text("Please enter in number of emails per locale");
+		}
+		//warningMsgs += "<li>Verify emails are sent by BV<br>";
+	}
+
+	// if (warningMsgs != ''){
+	// 	$("#overall-warnings").html(warningMsgs);
+	// 	$("#overall-warnings").prepend("Warnings:<br>");
+	// }
 }
 
 function update_labels(){
@@ -285,6 +322,7 @@ function show_sections(){
 	if(scope_emails.prop("checked")){
 		$('#section_locales').removeClass("disabled");
 		$('#section_emails').removeClass("disabled");
+		$('#section_products').removeClass("disabled");
 	}
 	
 	if(scope_resp.prop("checked")){
