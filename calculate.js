@@ -273,10 +273,6 @@ function show_errors(){
 		}
 	} 
 	if (scope_emails.prop("checked")){
-		if (!pro_reviews.prop("checked") && !pro_questions.prop("checked")){
-			$('#error-products').text("Please select one");
-		}
-
 		if (email_count == ''){
 			$('#error-emails').text("Please enter in number of emails per locale");
 		}
@@ -322,7 +318,6 @@ function show_sections(){
 	if(scope_emails.prop("checked")){
 		$('#section_locales').removeClass("disabled");
 		$('#section_emails').removeClass("disabled");
-		$('#section_products').removeClass("disabled");
 	}
 	
 	if(scope_resp.prop("checked")){
