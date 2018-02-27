@@ -7,17 +7,19 @@
 	</head>
 
 	<body>
-		<div class="container-fluid headerTitle">
+		<div class="container-fluid pageHeaderTitle">
 			<div class="container">
-				<img class="bvLogo" src="img/bv_primary_white-green.png">
+				<img class="bvLogo" src="img/bv_primary_white.png">
 				<h1>PRR Scoping Calculator</h1>
 			</div>
 		</div>
 		<div class="container main scopeCalc">
 			<div class="row">
-				<div class="col-8">
+				<div class="col-7 scopeContainer">
+					<div class="row header">
+						<h3>Primary Scope</h3>
+					</div>
 					<div class="col scope">
-						<h5>Primary Scope</h5>
 						<div class="row">
 							<div class="col">
 								<label for="scope_redes">
@@ -43,8 +45,10 @@
 					<div class="divider"></div>
 					
 					<div id="section_products" class="col disabled">
-						<h5>Products</h5>
-						<p id="error-products" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Products</h5>
+							<p id="error-products" class="error"></p>
+						</div>
 						<label for="pro_reviews">
 					    	<input type="checkbox" id="pro_reviews" class="option-input checkbox" />
 					    	Reviews
@@ -58,8 +62,10 @@
 					<div class="divider"></div>
 					
 					<div id="section_features" class="col disabled">
-						<h5>Features</h5>
-						<p id="error-features" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Features</h5>
+							<p id="error-features" class="error"></p>
+						</div>
 						<label for="fea_display">
 					    	<input type="checkbox" id="fea_display" class="option-input checkbox" />
 					    	Display
@@ -184,20 +190,27 @@
 
 					<!--<p><button type="button" onclick="calculate()">Calculate</button></p>-->
 				</div>
-				<div class="col-4">
-					<h4>Overall Hours</h4>
-					<p><b>Base Hours: </b><label id="lblBaseHours">0</label><br>
-					<b>Override Hours: </b><label id="lblOverrideHours">0</label><br>
-					<b>Custom Styling Hours: </b><label id="lblStylingHours">0</label><br>
-					<b>Total Hours: </b><label id="lblTotalHours">0</label></p>
+				
+				<div class="col-4 hoursContainer">
+					<div class="row header">
+						<h3>Scope Estimate</h3>
+					</div>
+					<div class="col">
+						<h4>Overall Hours</h4>
+						<p><b>Base Hours: </b><label id="lblBaseHours">0</label><br>
+						<b>Override Hours: </b><label id="lblOverrideHours">0</label><br>
+						<b>Custom Styling Hours: </b><label id="lblStylingHours">0</label><br>
+						<b>Total Hours: </b><label id="lblTotalHours">0</label></p>
 
-					<h4>Breakdown</h4>
-					<p><b>IPM Hours: </b><label id="lblIPMHours">0</label><br>
-					<b>IE Hours: </b><label id="lblIEHours">0</label><br>
-					<b>UID Hours: </b><label id="lblUIDHours">0</label></p>
+						<h4>Breakdown</h4>
+						<p><b>IPM Hours: </b><label id="lblIPMHours">0</label><br>
+						<b>IE Hours: </b><label id="lblIEHours">0</label><br>
+						<b>UID Hours: </b><label id="lblUIDHours">0</label></p>
 
-					<p id="overall-warnings" class="warning"></p>
+						<p id="overall-warnings" class="warning"></p>
+					</div>
 				</div>
+
 			</div>	
 		</div>
 
