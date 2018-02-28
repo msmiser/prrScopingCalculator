@@ -327,7 +327,6 @@ function show_sections(){
 		$('#section_styling').removeClass("disabled");
 		$('#section_locales').removeClass("disabled");
 		$('#section_responsive').removeClass("disabled");
-		$('#respType').show();
 	}
 }
 
@@ -337,38 +336,7 @@ $(document).ready(function() {
 	    show_sections();       
 	});
 
-	//TODO Improve below
-	$("[id^=pro]").change(function() {
-	    calculate();
-	});
-	$("[id^=fea]").change(function() {
-	    calculate();
-	});
-
-	$("[id^=override]").change(function() {
-	    calculate();
-	});
-
-	$("[id^=styling]").change(function() {
-	    calculate();
-	});
-
-	$("[id^=resp]").change(function() {
-	    calculate();
-	});
-
-	$("[id^=scope]").change(function() {
-	    calculate();
-	});
-
-	$("#locale_count").change(function() {
-		calculate();
-	});
-
-	$("[id^=email]").change(function() {
-		calculate();
-	});
-	$("[id^=other]").change(function() {
+	$("#form-calculator :input").change(function(){
 		calculate();
 	});
 });

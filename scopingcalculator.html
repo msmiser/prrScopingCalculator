@@ -13,223 +13,225 @@
 				<h1>PRR Scoping Calculator</h1>
 			</div>
 		</div>
-		<div class="container main scopeCalc">
-			<div class="row">
-				<div class="col-7 scopeContainer">
-					<div class="row header">
-						<h3>Primary Scope</h3>
-					</div>
-					<div class="col scope">
-						<div class="row">
-							<div class="col">
-								<div class="sectionTitle">
-									<h5>Scope Type <span>(select all that apply)</span></h5>
+		<form id="form-calculator">
+			<div class="container main scopeCalc">
+				<div class="row">
+					<div class="col-7 scopeContainer">
+						<div class="row header">
+							<h3>Primary Scope</h3>
+						</div>
+						<div class="col scope">
+							<div class="row">
+								<div class="col">
+									<div class="sectionTitle">
+										<h5>Scope Type <span>(select all that apply)</span></h5>
+									</div>
+									<label for="scope_redes">
+								    	<input type="checkbox" id="scope_redes" class="option-input checkbox" />
+								    	Redesign
+								 	</label>
+								 	<label for="scope_resp">
+								    	<input type="checkbox" id="scope_resp" class="option-input checkbox" />
+								    	Responsive
+								 	</label>
+								 	<label for="scope_emails">
+								    	<input type="checkbox" id="scope_emails" class="option-input checkbox" />
+								    	Emails
+								 	</label>
+								 	<label for="scope_other">
+								    	<input type="checkbox" id="scope_other" class="option-input checkbox" />
+								    	Other
+								 	</label>
 								</div>
-								<label for="scope_redes">
-							    	<input type="checkbox" id="scope_redes" class="option-input checkbox" />
-							    	Redesign
-							 	</label>
-							 	<label for="scope_resp">
-							    	<input type="checkbox" id="scope_resp" class="option-input checkbox" />
-							    	Responsive
-							 	</label>
-							 	<label for="scope_emails">
-							    	<input type="checkbox" id="scope_emails" class="option-input checkbox" />
-							    	Emails
-							 	</label>
-							 	<label for="scope_other">
-							    	<input type="checkbox" id="scope_other" class="option-input checkbox" />
-							    	Other
-							 	</label>
 							</div>
 						</div>
-					</div>
-					
-					<div class="divider"></div>
-					
-					<div id="section_products" class="col disabled">
-						<div class="sectionTitle">
-							<h5>Products</h5>
-							<p id="error-products" class="error"></p>
-						</div>
-						<label for="pro_reviews">
-					    	<input type="checkbox" id="pro_reviews" class="option-input checkbox" />
-					    	Reviews
-					 	</label>
-					 	<label for="pro_questions">
-					    	<input type="checkbox" id="pro_questions" class="option-input checkbox" />
-					    	Questions
-					 	</label>
-					</div>
-					
-					<div class="divider"></div>
-					
-					<div id="section_features" class="col disabled">
-						<div class="sectionTitle">
-							<h5>Features</h5>
-							<p id="error-features" class="error"></p>
-						</div>
-						<label for="fea_display">
-					    	<input type="checkbox" id="fea_display" class="option-input checkbox" />
-					    	Display
-					 	</label>
-					 	<label for="fea_submission">
-					    	<input type="checkbox" id="fea_submission" class="option-input checkbox" />
-					    	Submission
-					 	</label>
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="section_responsive" class="col disabled">
-						<div class="sectionTitle">
-							<h5>Responsive</h5>
-							<p id="error-resp" class="error"></p>
-						</div>
-						<label>
-						    <input type="radio" id="resp_std" class="option-input radio" name="responsive_type" checked />
-						    Standard
-						</label>
-						<label>
-						    <input type="radio" id="resp_high" class="option-input radio" name="responsive_type" />
-						    High Level
-						</label>
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="section_overrides" class="col disabled">
-						<div class="sectionTitle">
-							<h5>Overrides</h5>
-							<p id="error-overrides" class="error"></p>
-						</div>
-						<label>
-						    <input type="radio" id="override_std" class="option-input radio" name="override_type" checked />
-						    Standard
-						</label>
-						<label>
-						    <input type="radio" id="override_high" class="option-input radio" name="override_type" />
-						    High Level
-						</label>
-						Count: &nbsp;<input type="text" id="override_count" class="countBox" size="3">
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="section_styling" class="col disabled">
-						<div class="sectionTitle">
-							<h5>Custom Styling </h5>
-							<p id="error-styling" class="error"></p>
-						</div>
-						<label>
-						    <input type="radio" id="styling_std" class="option-input radio" name="styling_type" checked />
-						    Standard
-						</label>
-						<label>
-						    <input type="radio" id="styling_high" class="option-input radio" name="styling_type" />
-						    High Level
-						</label>
-						Count: &nbsp;<input type="text" id="styling_count" class="countBox" size="3">
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="section_locales" class="col disabled">
-						<div class="sectionTitle">
-							<h5>Locales</h5>
-							<p id="error-locales" class="error"></p>
-						</div>
-						Number of Locales: &nbsp;<input type="text" id="locale_count" class="countBox" size="3" value="1">
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="section_emails" class="col disabled">
-						<div class="sectionTitle">
-							<h5>Emails</h5>
-							<p id="error-emails" class="error"></p>
-						</div>
-						<label>
-						    <input type="radio" id="email_branded" class="option-input radio" name="email_type" checked />
-						    Branded
-						</label>
-						<label>
-						    <input type="radio" id="email_custom" class="option-input radio" name="email_type" />
-						    Custom
-						</label>
-						Number of Emails: &nbsp;<input type="text" id="email_count" class="countBox" size="3">
-					</div>
-
-					<div class="divider"></div>
-
-					<div id ="section_addfeatures" class="col disabled addFeatures">
-						<div class="sectionTitle">
-							<h5>Additional Features</h5>
-							<p id="error-addfeatures" class="error"></p>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<label for="other-summary">
-							    	<input type="checkbox" id="other-summary" class="option-input checkbox" />
-							    	Secondary Summary Container
-							 	</label>
-							 	<label for="other-pixel">
-							    	<input type="checkbox" id="other-pixel" class="option-input checkbox" />
-							    	BV Pixel
-							 	</label>
-							 	<label for="other-seo">
-							    	<input type="checkbox" id="other-seo" class="option-input checkbox" />
-							    	SEO
-							 	</label>
-							 	<label for="other-hostedauth">
-							    	<input type="checkbox" id="other-hostedauth" class="option-input checkbox" />
-							    	Hosted Authentication
-							 	</label>
-						 	</div>
-						 	<div class="col-md-5">
-							 	<label for="other-siteauth">
-							    	<input type="checkbox" id="other-siteauth" class="option-input checkbox" />
-							    	Site Authentication
-							 	</label>
-							 	<label for="other-pid">
-							    	<input type="checkbox" id="other-pid" class="option-input checkbox" />
-							    	PID Migration
-							 	</label>
-							 	<label for="other-import">
-							    	<input type="checkbox" id="other-import" class="option-input checkbox" />
-							    	Content Import
-							 	</label>
-						 	</div>
-					 	</div>
-					</div>
-
-					<!--<p><button type="button" onclick="calculate()">Calculate</button></p>-->
-				</div>
-				
-				<div class="col-4 hoursContainer">
-					<div class="row header">
-						<h3>Scope Estimate</h3>
-					</div>
-					<div class="col">
-						<h4>Overall Hours</h4>
+						
 						<div class="divider"></div>
-						<p><b>Base Hours: </b><label id="lblBaseHours">0</label><br>
-						<b>Override Hours: </b><label id="lblOverrideHours">0</label><br>
-						<b>Custom Styling Hours: </b><label id="lblStylingHours">0</label><br>
-						<b>Total Hours: </b><label id="lblTotalHours">0</label></p>
-
-						<h4>Breakdown</h4>
+						
+						<div id="section_products" class="col disabled">
+							<div class="sectionTitle">
+								<h5>Products</h5>
+								<p id="error-products" class="error"></p>
+							</div>
+							<label for="pro_reviews">
+						    	<input type="checkbox" id="pro_reviews" class="option-input checkbox" />
+						    	Reviews
+						 	</label>
+						 	<label for="pro_questions">
+						    	<input type="checkbox" id="pro_questions" class="option-input checkbox" />
+						    	Questions
+						 	</label>
+						</div>
+						
 						<div class="divider"></div>
-						<p><b>IPM Hours: </b><label id="lblIPMHours">0</label><br>
-						<b>IE Hours: </b><label id="lblIEHours">0</label><br>
-						<b>UID Hours: </b><label id="lblUIDHours">0</label></p>
+						
+						<div id="section_features" class="col disabled">
+							<div class="sectionTitle">
+								<h5>Features</h5>
+								<p id="error-features" class="error"></p>
+							</div>
+							<label for="fea_display">
+						    	<input type="checkbox" id="fea_display" class="option-input checkbox" />
+						    	Display
+						 	</label>
+						 	<label for="fea_submission">
+						    	<input type="checkbox" id="fea_submission" class="option-input checkbox" />
+						    	Submission
+						 	</label>
+						</div>
 
-						<p id="overall-warnings" class="warning"></p>
+						<div class="divider"></div>
+
+						<div id="section_responsive" class="col disabled">
+							<div class="sectionTitle">
+								<h5>Responsive</h5>
+								<p id="error-resp" class="error"></p>
+							</div>
+							<label>
+							    <input type="radio" id="resp_std" class="option-input radio" name="responsive_type" checked />
+							    Standard
+							</label>
+							<label>
+							    <input type="radio" id="resp_high" class="option-input radio" name="responsive_type" />
+							    High Level
+							</label>
+						</div>
+
+						<div class="divider"></div>
+
+						<div id="section_overrides" class="col disabled">
+							<div class="sectionTitle">
+								<h5>Overrides</h5>
+								<p id="error-overrides" class="error"></p>
+							</div>
+							<label>
+							    <input type="radio" id="override_std" class="option-input radio" name="override_type" checked />
+							    Standard
+							</label>
+							<label>
+							    <input type="radio" id="override_high" class="option-input radio" name="override_type" />
+							    High Level
+							</label>
+							Count: &nbsp;<input type="text" id="override_count" class="countBox" size="3">
+						</div>
+
+						<div class="divider"></div>
+
+						<div id="section_styling" class="col disabled">
+							<div class="sectionTitle">
+								<h5>Custom Styling </h5>
+								<p id="error-styling" class="error"></p>
+							</div>
+							<label>
+							    <input type="radio" id="styling_std" class="option-input radio" name="styling_type" checked />
+							    Standard
+							</label>
+							<label>
+							    <input type="radio" id="styling_high" class="option-input radio" name="styling_type" />
+							    High Level
+							</label>
+							Count: &nbsp;<input type="text" id="styling_count" class="countBox" size="3">
+						</div>
+
+						<div class="divider"></div>
+
+						<div id="section_locales" class="col disabled">
+							<div class="sectionTitle">
+								<h5>Locales</h5>
+								<p id="error-locales" class="error"></p>
+							</div>
+							Number of Locales: &nbsp;<input type="text" id="locale_count" class="countBox" size="3" value="1">
+						</div>
+
+						<div class="divider"></div>
+
+						<div id="section_emails" class="col disabled">
+							<div class="sectionTitle">
+								<h5>Emails</h5>
+								<p id="error-emails" class="error"></p>
+							</div>
+							<label>
+							    <input type="radio" id="email_branded" class="option-input radio" name="email_type" checked />
+							    Branded
+							</label>
+							<label>
+							    <input type="radio" id="email_custom" class="option-input radio" name="email_type" />
+							    Custom
+							</label>
+							Number of Emails: &nbsp;<input type="text" id="email_count" class="countBox" size="3">
+						</div>
+
+						<div class="divider"></div>
+
+						<div id ="section_addfeatures" class="col disabled addFeatures">
+							<div class="sectionTitle">
+								<h5>Additional Features</h5>
+								<p id="error-addfeatures" class="error"></p>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label for="other-summary">
+								    	<input type="checkbox" id="other-summary" class="option-input checkbox" />
+								    	Secondary Summary Container
+								 	</label>
+								 	<label for="other-pixel">
+								    	<input type="checkbox" id="other-pixel" class="option-input checkbox" />
+								    	BV Pixel
+								 	</label>
+								 	<label for="other-seo">
+								    	<input type="checkbox" id="other-seo" class="option-input checkbox" />
+								    	SEO
+								 	</label>
+								 	<label for="other-hostedauth">
+								    	<input type="checkbox" id="other-hostedauth" class="option-input checkbox" />
+								    	Hosted Authentication
+								 	</label>
+							 	</div>
+							 	<div class="col-md-5">
+								 	<label for="other-siteauth">
+								    	<input type="checkbox" id="other-siteauth" class="option-input checkbox" />
+								    	Site Authentication
+								 	</label>
+								 	<label for="other-pid">
+								    	<input type="checkbox" id="other-pid" class="option-input checkbox" />
+								    	PID Migration
+								 	</label>
+								 	<label for="other-import">
+								    	<input type="checkbox" id="other-import" class="option-input checkbox" />
+								    	Content Import
+								 	</label>
+							 	</div>
+						 	</div>
+						</div>
+
+						<!--<p><button type="button" onclick="calculate()">Calculate</button></p>-->
 					</div>
-				</div>
+					
+					<div class="col-4 hoursContainer">
+						<div class="row header">
+							<h3>Scope Estimate</h3>
+						</div>
+						<div class="col">
+							<h4>Overall Hours</h4>
+							<div class="divider"></div>
+							<p><b>Base Hours: </b><label id="lblBaseHours">0</label><br>
+							<b>Override Hours: </b><label id="lblOverrideHours">0</label><br>
+							<b>Custom Styling Hours: </b><label id="lblStylingHours">0</label><br>
+							<b>Total Hours: </b><label id="lblTotalHours">0</label></p>
 
-			</div>	
-		</div>
+							<h4>Breakdown</h4>
+							<div class="divider"></div>
+							<p><b>IPM Hours: </b><label id="lblIPMHours">0</label><br>
+							<b>IE Hours: </b><label id="lblIEHours">0</label><br>
+							<b>UID Hours: </b><label id="lblUIDHours">0</label></p>
+
+							<p id="overall-warnings" class="warning"></p>
+						</div>
+					</div>
+
+				</div>	
+			</div>
+		</form>
 
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="calculate.js"></script>
