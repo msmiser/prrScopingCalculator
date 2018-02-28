@@ -265,16 +265,16 @@ function show_errors(){
 	//TODO: prob better way to do all this to accommodate future updates to the form
 	if (scope_redes.prop("checked") || scope_resp.prop("checked") || scope_other.prop("checked")){
 		if (!pro_reviews.prop("checked") && !pro_questions.prop("checked")){
-			$('#error-products').text("Please select one");
+			$('#error-products').text("* Please select one");
 		}
 
 		if (!fea_display.prop("checked") && !fea_submission.prop("checked")){
-			$('#error-features').text("Please select one");
+			$('#error-features').text("* Please select one");
 		}
 	} 
 	if (scope_emails.prop("checked")){
 		if (email_count == ''){
-			$('#error-emails').text("Please enter in number of emails per locale");
+			$('#error-emails').text("* Please enter number of emails per locale");
 		}
 		//warningMsgs += "<li>Verify emails are sent by BV<br>";
 	}

@@ -22,6 +22,9 @@
 					<div class="col scope">
 						<div class="row">
 							<div class="col">
+								<div class="sectionTitle">
+									<h5>Scope Type <span>(select all that apply)</span></h5>
+								</div>
 								<label for="scope_redes">
 							    	<input type="checkbox" id="scope_redes" class="option-input checkbox" />
 							    	Redesign
@@ -79,8 +82,10 @@
 					<div class="divider"></div>
 
 					<div id="section_responsive" class="col disabled">
-						<h5>Responsive</h5>
-						<p id="error-resp" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Responsive</h5>
+							<p id="error-resp" class="error"></p>
+						</div>
 						<label>
 						    <input type="radio" id="resp_std" class="option-input radio" name="responsive_type" checked />
 						    Standard
@@ -94,8 +99,10 @@
 					<div class="divider"></div>
 
 					<div id="section_overrides" class="col disabled">
-						<h5>Overrides</h5>
-						<p id="error-overrides" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Overrides</h5>
+							<p id="error-overrides" class="error"></p>
+						</div>
 						<label>
 						    <input type="radio" id="override_std" class="option-input radio" name="override_type" checked />
 						    Standard
@@ -110,8 +117,10 @@
 					<div class="divider"></div>
 
 					<div id="section_styling" class="col disabled">
-						<h5>Custom Styling </h5>
-						<p id="error-styling" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Custom Styling </h5>
+							<p id="error-styling" class="error"></p>
+						</div>
 						<label>
 						    <input type="radio" id="styling_std" class="option-input radio" name="styling_type" checked />
 						    Standard
@@ -126,16 +135,20 @@
 					<div class="divider"></div>
 
 					<div id="section_locales" class="col disabled">
-						<h5>Locales</h5>
-						<p id="error-locales" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Locales</h5>
+							<p id="error-locales" class="error"></p>
+						</div>
 						Number of Locales: &nbsp;<input type="text" id="locale_count" class="countBox" size="3" value="1">
 					</div>
 
 					<div class="divider"></div>
 
 					<div id="section_emails" class="col disabled">
-						<h5>Emails</h5>
-						<p id="error-emails" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Emails</h5>
+							<p id="error-emails" class="error"></p>
+						</div>
 						<label>
 						    <input type="radio" id="email_branded" class="option-input radio" name="email_type" checked />
 						    Branded
@@ -150,10 +163,12 @@
 					<div class="divider"></div>
 
 					<div id ="section_addfeatures" class="col disabled addFeatures">
-						<h5>Additional Features</h5>
-						<p id="error-addfeatures" class="error"></p>
+						<div class="sectionTitle">
+							<h5>Additional Features</h5>
+							<p id="error-addfeatures" class="error"></p>
+						</div>
 						<div class="row">
-							<div class="col-5">
+							<div class="col-md-6">
 								<label for="other-summary">
 							    	<input type="checkbox" id="other-summary" class="option-input checkbox" />
 							    	Secondary Summary Container
@@ -171,7 +186,7 @@
 							    	Hosted Authentication
 							 	</label>
 						 	</div>
-						 	<div class="col-5">
+						 	<div class="col-md-5">
 							 	<label for="other-siteauth">
 							    	<input type="checkbox" id="other-siteauth" class="option-input checkbox" />
 							    	Site Authentication
@@ -197,12 +212,14 @@
 					</div>
 					<div class="col">
 						<h4>Overall Hours</h4>
+						<div class="divider"></div>
 						<p><b>Base Hours: </b><label id="lblBaseHours">0</label><br>
 						<b>Override Hours: </b><label id="lblOverrideHours">0</label><br>
 						<b>Custom Styling Hours: </b><label id="lblStylingHours">0</label><br>
 						<b>Total Hours: </b><label id="lblTotalHours">0</label></p>
 
 						<h4>Breakdown</h4>
+						<div class="divider"></div>
 						<p><b>IPM Hours: </b><label id="lblIPMHours">0</label><br>
 						<b>IE Hours: </b><label id="lblIEHours">0</label><br>
 						<b>UID Hours: </b><label id="lblUIDHours">0</label></p>
