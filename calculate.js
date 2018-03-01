@@ -1,6 +1,9 @@
 /* TODO Would be nice if it calculates on the fly */
-var numProducts = 0;
-var numFeatures = 0;
+var count_products = 0;
+var count_features = 0;
+var count_styling = 0;
+var count_overridess = 0;
+var count_locales = 0;
 var baseHours = 0;
 var ipmHours = 0;
 var ieHours = 0;
@@ -33,43 +36,42 @@ function calculate(){
 	ipmHours = 0;
 	ieHours = 0;
 	uidHours = 0;
-	numProducts = 0;
-	numFeatures = 0;
+	count_products = 0;
+	count_features = 0;
 	overrideHours = 0;
 	stylingHours = 0;
-	/* Calculate number of products */
-	/* Could actually iterate through this instead */
 	
-
-	if (pro_reviews.prop("checked")){numProducts++};
-	if (pro_questions.prop("checked")){numProducts++};
+	
+	//Get Counts
+	/* Calculate number of products */
+	if (pro_reviews.prop("checked")){count_products++};
+	if (pro_questions.prop("checked")){count_products++};
 
 	/* Calculate number of features */
-	/* Could actually iterate through this instead */
-	
+	if (fea_display.prop("checked")){count_features++};
+	if (fea_submission.prop("checked")){count_features++};
 
-	if (fea_display.prop("checked")){numFeatures++};
-	if (fea_submission.prop("checked")){numFeatures++};
+	count_locales = $('#locale_count').val();
+	count_overrides = $('#override_count').val();
+	count_styling = $('#styling_count').val();
 
-	//console.log("Products:" + numProducts);
-	//console.log("Features:" + numFeatures);
 
-	if (numProducts == 2 && numFeatures == 2){
+	if (count_products == 2 && count_features == 2){
 		baseHours += 80;
 		ieHours += 15;
 		uidHours += 45;
 		ipmHours += 20;
-	} else if (numProducts == 2 && numFeatures == 1){
+	} else if (count_products == 2 && count_features == 1){
 		baseHours += 50;
 		ieHours += 5;
 		uidHours += 30;
 		ipmHours += 15;
-	} else if (numProducts == 1 && numFeatures == 2){
+	} else if (count_products == 1 && count_features == 2){
 		baseHours += 60;
 		ieHours += 10;
 		uidHours += 35;
 		ipmHours += 15;
-	} else if (numProducts == 1 && numFeatures == 1){
+	} else if (count_products == 1 && count_features == 1){
 		baseHours += 40;
 		ieHours += 5;
 		uidHours += 25;
@@ -79,38 +81,36 @@ function calculate(){
 	//console.log("Base Hours: " + baseHours);
 
 	/* Calculate Override Hours*/
-	var overrideCount = $('#override_count').val();
 	var override_std = $('#override_std');
 	var override_high = $('#override_high');
 	var stdMultiplier = 2; //# of hours for one standard override/custom styling 
 	var highMultiplier = 5; //# of hours for one high level override/custom styling
 
-	if (overrideCount != null){
+	if (count_overrides != null){
 		if (override_std.prop("checked")){
-			overrideHours = overrideCount * stdMultiplier;
+			overrideHours = count_overrides * stdMultiplier;
 		} else if (override_high.prop("checked")){
-			overrideHours = overrideCount * highMultiplier;
+			overrideHours = count_overrides * highMultiplier;
 		}
 		ieHours += overrideHours;
-		ipmHours += 0.1 * overrideCount;
+		ipmHours += 0.1 * count_overrides;
 	}
 
 	//console.log("Override Hours: " + overrideHours);
 
 	/* Calculate Custom Styling Hours */
-	var stylingCount = $('#styling_count').val();
 	var styling_std = $('#styling_std');
 	var styling_high = $('#styling_high');
 
-	if (stylingCount != null){
+	if (count_styling != null){
 		
 		if (styling_std.prop("checked")){
-			stylingHours = stylingCount * stdMultiplier;
+			stylingHours = count_styling * stdMultiplier;
 		} else if (styling_high.prop("checked")){
-			stylingHours = stylingCount * highMultiplier;
+			stylingHours = count_styling * highMultiplier;
 		}
 		uidHours += stylingHours;
-		ipmHours += 0.1 * stylingCount;
+		ipmHours += 0.1 * count_styling;
 	}
 	//console.log("Styling Hours: " + stylingHours);	
 
@@ -121,25 +121,25 @@ function calculate(){
 	if (scope_resp.prop("checked")){
 		if(resp_high){
 			//High Level Responsive
-			if (numProducts == 2 && numFeatures == 2){
+			if (count_products == 2 && count_features == 2){
 				//RR & QA and Display & Submission
 				baseHours += 70;
 				ieHours += 10;
 				uidHours += 50;
 				ipmHours += 10;
-			} else if (numProducts == 2 && numFeatures == 1){
+			} else if (count_products == 2 && count_features == 1){
 				//RR & QA and Display OR Submission
 				baseHours += 50;
 				ieHours += 5;
 				uidHours += 35;
 				ipmHours += 10;
-			} else if (numProducts == 1 && numFeatures == 2){
+			} else if (count_products == 1 && count_features == 2){
 				//RR OR QA and Display & Submission
 				baseHours += 40;
 				ieHours += 5;
 				uidHours += 30;
 				ipmHours += 5;
-			} else if (numProducts == 1 && numFeatures == 1){
+			} else if (count_products == 1 && count_features == 1){
 				//RR OR QA and Display OR Submission
 				baseHours += 30;
 				ieHours += 5;
@@ -149,25 +149,25 @@ function calculate(){
 		}
 		else {
 			//Standard Responsive
-			if (numProducts == 2 && numFeatures == 2){
+			if (count_products == 2 && count_features == 2){
 				//RR & QA and Display & Submission
 				baseHours += 50;
 				ieHours += 10;
 				uidHours += 30;
 				ipmHours += 10;
-			} else if (numProducts == 2 && numFeatures == 1){
+			} else if (count_products == 2 && count_features == 1){
 				//RR & QA and Display OR Submission
 				baseHours += 30;
 				ieHours += 5;
 				uidHours += 20;
 				ipmHours += 5;
-			} else if (numProducts == 1 && numFeatures == 2){
+			} else if (count_products == 1 && count_features == 2){
 				//RR OR QA and Display & Submission
 				baseHours += 25;
 				ieHours += 5;
 				uidHours += 15;
 				ipmHours += 5;
-			} else if (numProducts == 1 && numFeatures == 1){
+			} else if (count_products == 1 && count_features == 1){
 				//RR OR QA and Display OR Submission
 				baseHours += 20;
 				ieHours += 5;
@@ -191,7 +191,8 @@ function calculate(){
 			ieHours += 10;
 		}
 		if ($('#other-hostedauth').prop("checked")){
-			ieHours += (10 + (4 * numProducts));
+			//Configuration + (Emails * Products * Locales)
+			ieHours += (10 + (4 * count_products * count_locales ));
 		}
 		if ($('#other-siteauth').prop("checked")){
 			ieHours += 10;
@@ -206,16 +207,14 @@ function calculate(){
 
 	/* Locales */
 	/* Calculation is 15% of Project Hours per locale */
-	locale_count = $('#locale_count').val();
-
-	if (locale_count > 0){
+	if (count_locales > 0){
 		ieHoursPerLocale = ieHours * .15;
 		ipmHoursPerLocale = ipmHours * .15;
 		uidHoursPerLocale = uidHours * .15;
 
-		ieHours = ieHours + (ieHoursPerLocale * locale_count);
-		ipmHours = ipmHours + (ipmHoursPerLocale * locale_count);
-		uidHours = uidHours + (uidHoursPerLocale * locale_count);
+		ieHours = ieHours + (ieHoursPerLocale * count_locales);
+		ipmHours = ipmHours + (ipmHoursPerLocale * count_locales);
+		uidHours = uidHours + (uidHoursPerLocale * count_locales);
 	}
 
 	/* Emails */
@@ -233,8 +232,8 @@ function calculate(){
 				uidHours += 2;
 
 				if (email_count > 1){
-					ieHours += (1 * email_count * locale_count);
-					uidHours += (2 * email_count * locale_count);
+					ieHours += (1 * email_count * count_locales);
+					uidHours += (2 * email_count * count_locales);
 				}
 			} else if (email_custom){
 				ieHours += 3;
