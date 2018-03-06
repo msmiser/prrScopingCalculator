@@ -298,38 +298,40 @@ function update_labels(){
 
 function show_sections(){
 	//Reset sections
-	$("[id^=section]").addClass("disabled");
-	$('#respType').hide();
+	$("[id^=section]").hide();
 
 	if(scope_redes.prop("checked")){
-		$('#section_products').removeClass("disabled");
-		$('#section_features').removeClass("disabled");
-		$('#section_overrides').removeClass("disabled");
-		$('#section_styling').removeClass("disabled");
-		$('#section_locales').removeClass("disabled");
+		$('#section_products').show();
+		$('#section_features').show();
+		$('#section_overrides').show();
+		$('#section_styling').show();
+		$('#section_locales').show();
 	}
 	
 	if(scope_other.prop("checked")){
-		$('#section_addfeatures').removeClass("disabled");
-		$('#section_products').removeClass("disabled");
+		$('#section_addfeatures').show();
+		$('#section_products').show();
 	}
 
 	if(scope_emails.prop("checked")){
-		$('#section_locales').removeClass("disabled");
-		$('#section_emails').removeClass("disabled");
+		$('#section_locales').show();
+		$('#section_emails').show();
 	}
 	
 	if(scope_resp.prop("checked")){
-		$('#section_products').removeClass("disabled");
-		$('#section_features').removeClass("disabled");
-		$('#section_overrides').removeClass("disabled");
-		$('#section_styling').removeClass("disabled");
-		$('#section_locales').removeClass("disabled");
-		$('#section_responsive').removeClass("disabled");
+		$('#section_products').show();
+		$('#section_features').show();
+		$('#section_overrides').show();
+		$('#section_styling').show();
+		$('#section_locales').show();
+		$('#section_responsive').show();
 	}
 }
 
 $(document).ready(function() {
+
+	$("[id^=section]").hide();
+	
 	//Disabled/Enable sections based on scope.
 	$("[id^=scope]").change(function() {
 	    show_sections();       
