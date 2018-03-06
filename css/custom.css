@@ -27,6 +27,8 @@ body {background: #fff;}
 .sectionTitle h5, .sectionTitle p {display: inline-block; margin-bottom: 0; padding-right: 5px;}
 .header {padding: 20px 25px; border-radius: 20px 20px 0 0; background: #65C8Cf; color: #fff;}
 .header h3 {margin-bottom: 0;}
+.col.divide {padding-bottom: 0;}
+.col.divide:after {display: block; border-bottom: 1px solid #eee; content: ''; padding-top: 25px;}
 
 /* ----- Bootstrap ----- */
 
